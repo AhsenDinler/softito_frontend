@@ -51,6 +51,9 @@ export default function Footer({ setView, setSelectedCategory }) {
             <span className="footer-link" onClick={() => setView("returns")}>
               İade ve Değişim
             </span>
+            <span className="footer-link" onClick={() => setView("categories")}>
+              Kategoriler
+            </span>
           </div>
           <div className="footer-section">
             <h3 className="footer-title">Güvenli Alışveriş</h3>

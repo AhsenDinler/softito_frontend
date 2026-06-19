@@ -17,7 +17,7 @@ export default function AboutUs() {
           </p>
           <div className="about-values-grid">
             {ABOUT_DATA.values.map((val)=>(
-              <div key={val.title} classNAme="value-card">
+              <div key={val.title} className="value-card">
                 <h3 className="value-title">{val.title}</h3>
                 <p className="value-desc">{val.desc}</p>
               </div>

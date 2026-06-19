@@ -29,7 +29,7 @@ export default function HelpCenter() {
           ))}
         </div>
         <div className="support-section">
-            <h2 clasName="form-tittle">Destek Talebi Oluştur</h2>
+            <h2 className="form-tittle">Destek Talebi Oluştur</h2>
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
                     <label className="form-label">Adınız Soyadınız</label>

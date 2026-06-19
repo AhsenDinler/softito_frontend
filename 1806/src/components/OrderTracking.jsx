@@ -1,16 +1,36 @@
+import { useState } from "react";
 export default function OrderTracking() {
+  const [orderId, setOrderId]=useState('')
+  const[email, setEmail]=useState('')
+  const[trackedOrder, setTrackedOrder]=useState('')
+  const[error, setError]=useState('')
+
+  const handleTrackSubmit=(e)=>{
+    e.preventDefault();
+    if (orderId ==="12345"){
+      setTrackedOrder({ id: "12345", status: "Hazırlanıyor" });
+      setError("");
+    }else{
+    setTrackedOrder(null);
+    setError("Sipariş Bulunamadı! (Örnek Sİpariş No: 12345");
+  } 
+  };
+
   return (
     <>
       <main className="tracking-container">
         <div className="tracking-card">
           <h2 className="form-tittle">Sipariş Takibi</h2>
-          <form>
+          <form onSubmit={handleTrackSubmit}>
             <div className="form-group">
               <label className="form-label">Sipariş Numarası</label>
               <input
                 className="form-input"
                 type="text"
                 placeholder="Örn:12345"
+                value={orderId}
+                required
+                onChange={(e) =>setOrderId(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -19,14 +39,19 @@ export default function OrderTracking() {
                 className="form-input"
                 type="email"
                 placeholder="Ahmet@yilmaz.com"
+                value={email}
+                required
+                onChange={(e)=> setEmail(e.target.value)}
               />
             </div>
             <button className="form-submit" type="submit">
               Siparişi Sorgula
             </button>
           </form>
+          {error && <span className="form-error">{error}</span>}
         </div>
 
+        {trackedOrder&&(
         <div className="tracking-card">
           <h3 className="value-tittle">Sİpariş Durumu: Hazırlanıyor</h3>
           <div className="timeline">
@@ -53,6 +78,7 @@ export default function OrderTracking() {
             </div>
           </div>
         </div>
+        )}
       </main>
     </>
   );
